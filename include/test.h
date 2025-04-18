@@ -4,18 +4,20 @@
 #include "info.h"
 
 #include <utility>
-
+#include <cstdarg>
 
 extern const char* START;
 extern const char* END;
 
 template<typename Func, typename... Args>
-void test(Func func, Args&&... args)
+void test(Func func, Args... args)
 {
     printInfo(START);
     auto tmp = func(std::forward<Args>(args)...);
     printRes(tmp);
     printInfo(END);
 }
+
+// void test_(void(*func()), ...);
 
 #endif
