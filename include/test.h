@@ -4,13 +4,13 @@
 #include "info.h"
 
 #include <utility>
-#include <cstdarg>
+// #include <cstdarg>
 
 extern const char* START;
 extern const char* END;
 
 template<typename Func, typename... Args>
-void test(Func func, Args... args)
+void test(Func func, Args&&... args)
 {
     printInfo(START);
     auto tmp = func(std::forward<Args>(args)...);
@@ -18,6 +18,12 @@ void test(Func func, Args... args)
     printInfo(END);
 }
 
+template<typename Func>
+void test(Func func) {
+    printf("%s ", __PRETTY_FUNCTION__);
+    printInfo(FAILURE);
+    return;
+}
 // void test_(void(*func()), ...);
 
 #endif

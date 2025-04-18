@@ -1,4 +1,3 @@
-#include "color.h"
 #include "info.h"
 #include "data.h"
 #include "test.h"
@@ -13,7 +12,7 @@ std::vector<int>& sort_test(std::vector<int>& arr) {
 
 void print(int a, const int& b) {
     std::cout << a << " " << b << std::endl;
-} 
+}
 
 
 int main() {
@@ -25,6 +24,6 @@ int main() {
     getData(arr, n);
 
     test(sort_test, arr);
-
+    test(print);
     return 0;
 }
