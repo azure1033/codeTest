@@ -19,3 +19,26 @@ void printRes(std::vector<int>& arr)
     });
     printf("\n");
 }
+
+/**
+ *  @brief complement a progressbar
+ */
+
+void showProgressBar(int total) {
+    const int width = 30;
+    for (int i = 0; i <= total; ++i) {
+        float progress = (float)i / total;
+        std::cout << '[';
+        int pos = width * progress;
+        for (int j = 0; j < width; ++j) {
+            if (j < pos) std::cout << '#';
+        }
+        std::cout << ' ' << (int)(progress * 100.0) << "%]\r";
+
+        std::cout.flush();
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    }
+
+    std::cout << '\n';
+}

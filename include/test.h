@@ -22,7 +22,7 @@ void test(Func func, Args&&... args)
 
 template<typename Func>
 void test(Func func) {
-    printf("%s ", __PRETTY_FUNCTION__);
+    printf("%s \n", __PRETTY_FUNCTION__);
     printInfo(FAILURE);
     return;
 }

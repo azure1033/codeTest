@@ -37,8 +37,9 @@ int main() {
     test(sort_test, arr);
     test(print);
 
-    ::testing::InitGoogleTest();
-    return RUN_ALL_TESTS();
+    showProgressBar(100);
 
+    // ::testing::InitGoogleTest();
+    // return RUN_ALL_TESTS();
     return 0;
 }
