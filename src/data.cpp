@@ -30,3 +30,28 @@ int getData(std::vector<int>& arr, int n)
     }
     return 0;
 }
+
+int getData(std::vector<int> &arr)
+{
+    std::ifstream file = openFile(PATH);
+    std::string line;
+    if (!std::getline(file, line)) {
+        printInfo(FAILURE);
+        return -1;
+    }
+
+    std::istringstream iss(line);
+    arr.clear();
+    int num;
+
+    while (iss >> num) {
+        arr.push_back(num);
+    }
+
+    if (arr.empty()) {
+        printInfo(FAILURE);
+        return -1;
+    }
+
+    return 0;
+}

@@ -28,6 +28,6 @@ void test(Func func) {
 }
 // void test_(void(*func()), ...);
 
-
+bool isprimes(const int n);
 
 #endif

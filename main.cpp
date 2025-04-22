@@ -4,42 +4,27 @@
 
 #include <gtest/gtest.h>
 #include <iostream>
+#include <string>
+#include <stack>
 
-std::vector<int>& sort_test(std::vector<int>& arr) {
-    std::sort(arr.begin(), arr.end());
-    return arr;
-}
+
 
 void print(int a, const int& b) {
     std::cout << a << " " << b << std::endl;
 }
 
-TEST(SortTest, HandlesPositiveNumbers) {
-    std::vector<int> input = {3, 1, 4, 1, 5};
-    std::vector<int> expected = {1, 1, 3, 4, 5};
-    EXPECT_EQ(sort_test(input), expected);
-}
+TEST(isprimes, test1) {
+    std::vector<int> test;
+    getData(test);
+    std::vector<bool> expected = {true, true, true, false, false, true, false, false};
 
-TEST(SortTest, HandlesEmptyVector) {
-    std::vector<int> input = {};
-    std::vector<int> expected = {};
-    EXPECT_EQ(sort_test(input), expected);
+    for (size_t i = 0; i < test.size(); ++i) {
+        EXPECT_EQ(isprimes(test[i]), expected[i]) << "Test failed for input: " << i;
+    }
 }
 
 int main() {
-    std::string path = "data.txt";
-    openFile(path);
-    std::vector<int> arr;
-    int n = 8;
-
-    getData(arr, n);
-
-    test(sort_test, arr);
-    test(print);
-
-    showProgressBar(100);
-
-    // ::testing::InitGoogleTest();
-    // return RUN_ALL_TESTS();
+    ::testing::InitGoogleTest();
+    return RUN_ALL_TESTS();
     return 0;
 }
