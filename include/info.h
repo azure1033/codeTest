@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <chrono>
 #include <iostream>
+#include <stack>
 #include <thread>
 
 extern const char* RUNNING;
@@ -21,6 +22,17 @@ void printRes(T&& first, Args&&... args) {
         std::cout << x << ' ';
     });
     std::cout << '\n';
+}
+
+template<typename T>
+void printRes(std::stack<T>& stack) {
+    std::vector<T> temp;
+    while (!stack.empty()) {
+        temp.emplace_back(stack.top());
+        stack.pop();
+    }
+    std::reverse(temp.begin(), temp.end());
+    printRes(temp);
 }
 
 void printRes(std::vector<int>& arr);

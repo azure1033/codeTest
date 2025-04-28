@@ -9,6 +9,7 @@
 #include <climits>
 #include <numeric>
 #include <algorithm>
+// #include <stack>
 
 using namespace std;
 
@@ -35,12 +36,14 @@ int main() {
     vector<int> arr;
     getData(arr);
 
-    int m = INT_MIN;
+    stack<int> s;
 
-    for_each(arr.begin(), arr.end(), [&](int a) {
-        m = max(m, a);
-        cout << "m: " << m << '\n';
-    });
-    cout << m;
+    for (int num : arr) {
+        s.push(num);
+    }
+
+    printRes(s);
+    
+    
     return 0;
 }
