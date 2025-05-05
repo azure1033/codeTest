@@ -43,7 +43,7 @@ int main() {
     }
 
     printRes(s);
-    
+     
     
     return 0;
 }

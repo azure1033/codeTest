@@ -7,7 +7,7 @@ CXXFILES = $(shell find . -name "*.cpp")
 OBJS = $(CXXFILES:.cpp=.o)
 TARGET = main
 
-$(TARGET): $(CFALGS) $(OBJS)
+$(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
 %.o: %.cpp
