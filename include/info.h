@@ -13,6 +13,7 @@ extern const char* RUNNING;
 extern const char* SUCCESS;
 extern const char* FAILURE;
 extern const char* WARNING;
+extern const char* DATAWRONG;
 
 void printInfo(const char* info);
 

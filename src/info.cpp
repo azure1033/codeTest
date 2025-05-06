@@ -6,6 +6,7 @@ const char* RUNNING = "RUNNING";
 const char* SUCCESS = "success and exit";
 const char* FAILURE = "failure and exit";
 const char* WARNING = "warning";
+const char* DATAWRONG = "data wrong";
 
 void printInfo(const char* info)
 {

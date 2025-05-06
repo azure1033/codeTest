@@ -34,16 +34,11 @@ int main() {
     // return RUN_ALL_TESTS();
 
     vector<int> arr;
-    getData(arr);
+    
+    getData(arr, 10);
 
-    stack<int> s;
-
-    for (int num : arr) {
-        s.push(num);
-    }
-
-    printRes(s);
-     
+    printRes(arr);
+    
     
     return 0;
 }

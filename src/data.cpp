@@ -1,6 +1,8 @@
 #include "data.h"
 #include "info.h"
 
+#include <string>
+
 std::string PATH = "data.txt";
 
 std::ifstream openFile(std::string path)
@@ -22,12 +24,20 @@ int getData(std::vector<int>& arr, int n)
 
     arr.clear();
     arr.resize(n);
+    
+    std::string line;
+    std::getline(file, line);
+    std::istringstream iss(line);
+    int num;
     for (int i = 0; i < n; ++i) {
-        if (!(file >> arr[i])) {
-            printInfo(FAILURE);
+        if (!(iss >> num)) {
+            printInfo(DATAWRONG);
             return -1;
+        } else {
+            arr[i] = num;
         }
     }
+    
     return 0;
 }
 
