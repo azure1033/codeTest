@@ -17,7 +17,7 @@ std::ifstream openFile(std::string path)
 
 int getData(std::vector<int>& arr, int n)
 {
-    std::ifstream file = openFile(PATH);
+    static std::ifstream file = openFile(PATH);
     if (!file.is_open()) {
         return -1;
     }

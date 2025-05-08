@@ -1,5 +1,6 @@
 #include "info.h"
-#include "data.h"
+// #include "data.h"
+#include "rfile.h"
 #include "test.h"
 
 #include <gtest/gtest.h>
@@ -33,12 +34,15 @@ int main() {
     // ::testing::InitGoogleTest();
     // return RUN_ALL_TESTS();
 
-    vector<int> arr;
+    RFile rf;
+    rf.open();
+    vector<int> v1, v2;
+    rf.getData(v1);
+    rf.getData(v2);
     
-    getData(arr, 10);
+    printRes(v1);
+    printRes(v2);
+    
 
-    printRes(arr);
-    
-    
     return 0;
 }
