@@ -2,7 +2,7 @@
 
 CC = g++
 CFLAGS = -I include -I ../googletest/googletest/include -I ../googletest/googlemock/include
-LDFLAGS = -L ../googletest/build/lib -lgtest -lgmock -lpthread
+LDFLAGS = -L ../googletest/shared_build/lib -lgtest -lgmock -lpthread
 CXXFILES = $(shell find . -name "*.cpp")
 OBJS = $(CXXFILES:.cpp=.o)
 TARGET = main

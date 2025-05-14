@@ -1,6 +1,8 @@
 #ifndef RFILE_H
 #define RFILE_H
 
+#include "info.h"
+
 #include <fstream>
 #include <vector>
 #include <string>

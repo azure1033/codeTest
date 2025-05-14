@@ -1,4 +1,4 @@
-#include "info.h"
+// #include "info.h"
 // #include "data.h"
 #include "rfile.h"
 #include "test.h"
@@ -36,13 +36,18 @@ int main() {
 
     RFile rf;
     rf.open();
-    vector<int> v1, v2;
+    vector<int> v1, v2, res(10);
     rf.getData(v1);
+    
     rf.getData(v2);
     
+    std::transform(v1.begin(), v1.end(), v2.begin(), res.begin(), [](int a, int b) {
+        return a + b;
+    });
+
     printRes(v1);
     printRes(v2);
-    
+    printRes(res);
 
     return 0;
 }
