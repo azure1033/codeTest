@@ -1,5 +1,5 @@
 // #include "info.h"
-// #include "data.h"
+#include "data.h"
 #include "rfile.h"
 #include "test.h"
 
@@ -18,27 +18,28 @@ using namespace std;
 //     std::cout << a << " " << b << std::endl;
 // }
 
-// TEST(isprimes, test1) {
-//     std::vector<int> test;
-//     getData(test);
-//     std::vector<bool> expected = {true, true, true, false, false, true, false, false};
+TEST(isprimes, test1) {
+    std::vector<int> test;
+    getData(test);
+    std::vector<bool> expected = {true, true, true, false, false, true, false, false};
 
-//     for (size_t i = 0; i < test.size(); ++i) {
-//         EXPECT_EQ(isprimes(test[i]), expected[i]) << "Test failed for input: " << i;
-//     }
-// }
+    for (size_t i = 0; i < test.size(); ++i) {
+        EXPECT_EQ(isprimes(test[i]), expected[i]) << "Test failed for input: " << i;
+    }
+}
+
 
 
 
 int main() {
-    // ::testing::InitGoogleTest();
-    // return RUN_ALL_TESTS();
+    ::testing::InitGoogleTest();
+    return RUN_ALL_TESTS();
 
     RFile rf;
     rf.open();
     vector<int> v1, v2, res(10);
     rf.getData(v1);
-    
+
     rf.getData(v2);
     
     std::transform(v1.begin(), v1.end(), v2.begin(), res.begin(), [](int a, int b) {
